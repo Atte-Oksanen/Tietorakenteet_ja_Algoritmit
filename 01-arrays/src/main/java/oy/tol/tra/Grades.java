@@ -30,13 +30,17 @@ public class Grades {
        4. Fix the issue.
        5. Transform the algorithm to a generic one as instructed in the readme file.
       */
+      /*Algoritmi toimi vain parittomila luvuilla, parillisilla luvuilla kaksi keskimmäistä alkiota 
+       * jäivät alkuperäisille paikoilleen. Uudessa toteutuksessa taulukkoa käsitellään molemmista päistä 
+       * samanaikaisesti lähestyen keskipistettä
+       */
       int i = 0;
-      while (i <= grades.length/2) {
+      while( i < grades.length - i){
          int temp = grades[i];
          grades[i] = grades[grades.length-i-1];
          grades[grades.length-i-1] = temp;
          i++;
-     }
+      }
    }
 
    /**
@@ -50,16 +54,15 @@ public class Grades {
        4. Fix the issue.
        5. Transform the algorithm to a generic one as instructed in the readme file.
       */
-      int i = grades.length-1;
-      while (i > 0) {
-         if (grades[i] < grades[i-1]) {
-            int tmp = grades[i];
-            grades[i] = grades[i-1];
-            grades[i-1] = tmp;
-         }
-         i--;
-      }
-
+      for(int i = 0; i < grades.length; i++){
+			for(int j = i + 1; j < grades.length; j++){
+				if(grades[i].compareTo(grades[j]) > 0){
+					int temp = grades[i];
+					grades[i] = grades[j];
+					grades[j] = temp;
+				}
+			}
+		}
    }
 
 
