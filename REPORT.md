@@ -10,7 +10,9 @@ Jos tehtävässä pyydetään **raportoimaan** jotain, kirjoita myös nämä rap
 
 ## 02-mode
 
-Tähän tehtävään liittyy raportti! Lue ohjeet!
+![Graph](02-mode_graph.png)
+
+Kuten yllä olevasta kuvaajasta voi nähdä, toteutukseni suoritusaika kasvaa eksponentiaalisesti suhteessa aineiston kokoon, eli aikakompleksisuus on O(n^2). Tämä johtuu algoritmin alussa suoritettavasta `sort`-metodista, jossa aineisto järjestetään bubble-sort tyyppisellä algoritmilla. Parantamalla `sort`-metodin algoritmia, saadaan myös `findMode`-metodi suoriutumaan nopeammin.
 
 ## 03-draw
 

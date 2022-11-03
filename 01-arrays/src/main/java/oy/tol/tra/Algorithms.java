@@ -15,7 +15,6 @@ public class Algorithms {
       for(int i = 0; i < array.length - i; i++){
         swap(array, i, array.length-i-1);
       }
-
     }
 
     private static <T> void swap(T [] array, int indexStart, int indexEnd){
