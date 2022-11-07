@@ -163,15 +163,16 @@ public class Shapes {
 
     public void removeSelected4() {
         // 4th fast way
-        // TODO: Implement method Algorithms.partitionByRule!
-        // int selectedIndex = Algorithms.partitionByRule(shapeArray, count, shape -> shape.isSelected());
-        // Uncomment this and implement it below.
-        // removeFrom(selectedIndex);
+         int selectedIndex = Algorithms.partitionByRule(shapeArray, count, shape -> shape.isSelected());
+         removeFrom(selectedIndex);
     }
 
-        // TODO: Implement this method!
     public void removeFrom(int index) {
-        
+        count = index;
+        while(index < shapeArray.length - 1){
+            shapeArray[index] = null;
+            index++;
+        }
     }
 
     public Shape getShape(final int index) throws ArrayIndexOutOfBoundsException {
