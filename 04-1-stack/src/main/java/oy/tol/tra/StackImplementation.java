@@ -1,9 +1,10 @@
 package oy.tol.tra;
 
+import java.rmi.server.ObjID;
+
 /**
  * An implementation of the StackInterface.
  * <p>
- * TODO: Students, implement this so that the tests pass.
  * 
  * Note that you need to implement construtor(s) for your concrete StackImplementation, which
  * allocates the internal Object array for the Stack:
@@ -12,8 +13,10 @@ package oy.tol.tra;
  *  -- remember to maintain the capacity and/or currentIndex when the stack is manipulated.
  */
 public class StackImplementation<E> implements StackInterface<E> {
-
-   // TODO: Add member variables needed.
+   private static final int DEFAULT_SIZE = 10;
+   private int capacity = DEFAULT_SIZE;
+   private int currentIndex = 0;
+   private Object [] itemArray;
    // Do not use constant values in code, e.g. 10. Instead, define a constant for that. For example:
    // private static final int MY_CONSTANT_VARIABLE = 10;
 
@@ -23,10 +26,10 @@ public class StackImplementation<E> implements StackInterface<E> {
     * @throws StackAllocationException
     */
    public StackImplementation() throws StackAllocationException {
-      // TODO: call the constructor with size parameter with default size (see member variable!).
+      itemArray = new Object[DEFAULT_SIZE];
    }
 
-   /** TODO: Implement so that
+   /** 
     * - if the size is less than 2, throw StackAllocationException
     * - if the allocation of the array throws with Java exception,
     *   throw StackAllocationException.
@@ -34,53 +37,93 @@ public class StackImplementation<E> implements StackInterface<E> {
     * @throws StackAllocationException If cannot allocate room for the internal array.
     */
    public StackImplementation(int capacity) throws StackAllocationException {
+      if(capacity < 2){
+         throw new StackAllocationException("Capacity must be more than 2.");
+      }
+      this.capacity = capacity;
+      itemArray = new Object[capacity];
    }
 
    @Override
    public int capacity() {
-      // TODO: Implement this
-      return 0;
+      return capacity;
    }
 
    @Override
    public void push(E element) throws StackAllocationException, NullPointerException {
-      // TODO: Implement this
+      if(element == null){
+         throw new NullPointerException("Pushed element cannnot be null.");
+      }
+      if(currentIndex == capacity){
+         capacity = capacity * 2;
+         Object[] temp = new Object[capacity];
+         for(int n = 0; n < currentIndex; n++){
+            temp[n] = itemArray[n];
+         }
+         itemArray = temp.clone();
+         temp = null;
+      }
+      itemArray[currentIndex] = element;
+      currentIndex++;
    }
 
    @SuppressWarnings("unchecked")
    @Override
    public E pop() throws StackIsEmptyException {
-      // TODO: Implement this
-      return null;
+      if(currentIndex == 0){
+         throw new StackIsEmptyException("The stack is empty.");
+      }
+      currentIndex--;
+      E element =(E) itemArray[currentIndex];
+      itemArray[currentIndex] = null;
+      return element; 
    }
 
    @SuppressWarnings("unchecked")
    @Override
    public E peek() throws StackIsEmptyException {
-      // TODO: Implement this
-      return null;
+      if(currentIndex == 0){
+         throw new StackIsEmptyException("The stack is empty.");
+      }
+      E element =(E) itemArray[currentIndex - 1];
+      return element; 
    }
 
    @Override
    public int size() {
-      // TODO: Implement this
-      return 0;
+      return currentIndex;
    }
 
    @Override
    public void clear() {
-      // TODO: Implement this
+      while(currentIndex > 0){
+         itemArray[currentIndex - 1] = null;
+         currentIndex--;
+      }
    }
 
    @Override
    public boolean isEmpty() {
-      // TODO: Implement this
-      return false;
+      if(currentIndex == 0){
+         return true;
+      }
+      else{
+         return false;
+      }
    }
 
-   @Override
+    @Override
    public String toString() {
-      // TODO: Implement this
-      return "";
+      if(itemArray[0] == null){
+         return "[]";
+      }
+      String temp = "[" + itemArray[0];
+      for(int n = 1; n < currentIndex; n++){
+         if(itemArray[n] != null){
+            temp = temp + ", " + itemArray[n];
+         }
+      }
+      temp = temp + "]";
+      return temp;
    }
 }
