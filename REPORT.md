@@ -27,6 +27,8 @@ Tämä tehtävä oli ehdottomasti vaikein, mitä olen tähän mennessä tehnyt. 
 
 ## 04-1-stack
 
+Tämä tehtävä oli helpommin ymmärrettävä kuin aiempi, mutta huomattavasti työläämpi. Asiaan saattaa vaikuttaa pinon tunteminen aiemmin jo käsitteellisesti, jolloin sen toteuttaminen oli helpompaa
+
 
 ## 04-2-queue
 
