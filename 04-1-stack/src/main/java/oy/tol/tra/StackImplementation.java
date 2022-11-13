@@ -60,8 +60,7 @@ public class StackImplementation<E> implements StackInterface<E> {
          for(int n = 0; n < currentIndex; n++){
             temp[n] = itemArray[n];
          }
-         itemArray = temp.clone();
-         temp = null;
+         itemArray = temp;
       }
       itemArray[currentIndex] = element;
       currentIndex++;
@@ -85,8 +84,7 @@ public class StackImplementation<E> implements StackInterface<E> {
       if(currentIndex == 0){
          throw new StackIsEmptyException("The stack is empty.");
       }
-      E element =(E) itemArray[currentIndex - 1];
-      return element; 
+      return ((E) itemArray[currentIndex - 1]); 
    }
 
    @Override
@@ -104,15 +102,10 @@ public class StackImplementation<E> implements StackInterface<E> {
 
    @Override
    public boolean isEmpty() {
-      if(currentIndex == 0){
-         return true;
-      }
-      else{
-         return false;
-      }
+      return (currentIndex == 0);
    }
 
-    @Override
+   @Override
    public String toString() {
       if(itemArray[0] == null){
          return "[]";
