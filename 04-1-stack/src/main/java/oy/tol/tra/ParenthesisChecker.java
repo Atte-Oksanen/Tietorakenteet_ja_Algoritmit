@@ -48,6 +48,37 @@ public class ParenthesisChecker {
     * @throws StackAllocationException If the stack cannot be allocated or reallocated if necessary.
     */
     public static int checkParentheses(StackInterface<Character> stack, String fromString) throws ParenthesesException {
+      int parentheses = 0;
+      char popped;
+
+      for(int n = 0; n < fromString.length(); n++){
+         char testable = fromString.charAt(n);
+         if(testable == '('|| testable == '[' || testable == '{'){
+            try {
+               stack.push(testable);
+               parentheses++;   
+            } catch (StackAllocationException e) {
+               throw new StackAllocationException("The stack could not be allocated.");
+            }
+         }
+         else if(testable == ')'|| testable == ']' || testable == '}'){
+            parentheses++;
+            popped = stack.pop();
+
+            if(popped == '\0'){
+               throw new ParenthesesException("There are too many closing parentheses.", -1);
+            }
+
+            if(popped == testable){ //TODO: aivan väärä lähestymistapa korjaileppa kun jaksat että {==} yms.
+               throw new ParenthesesException("Wrong type of parentheses", -2);
+            }
+
+         }
+      }
+
+      if(stack.isEmpty() == false){
+         throw new ParenthesesException("There are too many opening parentheses", -2);
+      }
       // TODO:
       // for each character in the input string
       //   if character is an opening parenthesis -- one of "([{"
@@ -61,6 +92,6 @@ public class ParenthesisChecker {
       //         throw an exception, wrong kind of parenthesis were in the text (e.g. "asfa ( asdf } sadf")
       // if the stack is not empty after all the characters have been handled
       //   throw an exception since the string has more opening than closing parentheses.
-      return 0; // << TODO: Change that too!!
+      return parentheses; // << TODO: Change that too!!
    }
 }

@@ -32,7 +32,6 @@ public class StackFactory {
     * @return The stack implementation holding Characters.
     */
    public static StackInterface<Character> createCharacterStack(int capacity) {
-      // TODO: Implement this!
-      return null;
+      return new StackImplementation<>(capacity);
    }
 }
