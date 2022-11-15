@@ -27,11 +27,12 @@ Tämä tehtävä oli ehdottomasti vaikein, mitä olen tähän mennessä tehnyt. 
 
 ## 04-1-stack
 
-Tämä tehtävä oli helpommin ymmärrettävä kuin aiempi, mutta huomattavasti työläämpi. Asiaan saattaa vaikuttaa pinon tunteminen aiemmin jo käsitteellisesti, jolloin sen toteuttaminen oli helpompaa
+Tämä tehtävä oli helpommin ymmärrettävä kuin aiempi, mutta huomattavasti työläämpi. Asiaan saattaa vaikuttaa pinon tunteminen aiemmin jo käsitteellisesti, jolloin sen toteuttaminen oli helpompaa.
 
 
 ## 04-2-queue
 
+Oletin tehtävän helpoksi edellisen tehtävän mutkattomuuden vuoksi, mutta tämän takia lähdin ratkaisemaan tehtävää aivan väärällä tavalla ensiksi. Kun ymmärsin toteutukseni toimimattomuuden, aloitin kokonaan alusta ja sain tehtävän tehtyä yllättävän nopeasti. Ehdottomasti tärkein asia, jonka opin, on taulukoiden muistitehokas manipulointi.
 
 ## 04-3-linkedlist
 
