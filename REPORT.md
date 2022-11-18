@@ -36,6 +36,7 @@ Oletin tehtävän helpoksi edellisen tehtävän mutkattomuuden vuoksi, mutta tä
 
 ## 04-3-linkedlist
 
+Edellisestä tehtävästä nöyrryttäni tämän algoritmin luominen olikin huomattavasti helpompaa. Luentomateriaaleista oli tässä tehtävässä erityisen paljon apua toteutuksen ymmärtämiseksi. Katsellessani javan omien kirjastojen tietorakenneratkaisuja olin yllättynyt, että omani oli erittäin samanlainen kuin siellä (Tietenkin javan LinkedList on linkattu molempiin suuntiin). Testailin myös suoritusaikoja omalla ja javan toteutuksilla ja mielestäni ainoastaan kahteen suuntaan linkkaaminen tekee javan omasta toteutuksesta nopeamman, ja ArrayListin tekee nopeammaksi sen taulukkorakenne, jolloin varsinkin indekseihin perustuvien metodien ajaminen on huomattavasti tehokkaampaa. 
 
 ## 05-binsearch
 
