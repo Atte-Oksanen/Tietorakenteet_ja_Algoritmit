@@ -40,9 +40,11 @@ Edellisestä tehtävästä nöyrryttäni tämän algoritmin luominen olikin huom
 
 ## 05-binsearch
 
+Käsitteellisesti puolitushaku oli mielestäni helpompi kuin aiemmin toteutetut tietorakenteet, eikä sen toteuttamisessa tullut käytännössä mitään yllätyksiä esiin. Ajatus puolitushausta oli saanut muhia pidemmän aikaa pääkopassa, joka saattoi myös auttaa toteutuksen teossa.
 
 ## 05-invoices
 
+Vaikka tehtävä vaikutti aluksi haastavalta, osoittautuikin se huomattavasti helpommaksi kuin alunperin luulin. Valitsin lajittelualgoritmiksi rekursiivisen heap-sortin, koska se vaikutti parhaalta tehtävän tarkoitukseen. En tehnyt algoritmia stabiiliksi, koska tehtävä ei sitä vaatinut, mutta se pitää pitää mielessä, jos myöhemmin käytettynä siitä tulee ongelmia.
 
 ## 67-phonebook
 
