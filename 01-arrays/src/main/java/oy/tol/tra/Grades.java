@@ -23,46 +23,14 @@ public class Grades {
     * The method to reverse the internal Java int array.
     */
    public void reverse() {
-      /* TODO:
-       1. Execute the tests following the instructions.
-       2. Study the code below and try to find what is the issue.
-       3. Use the debugger to see the execution and variable values if necessary.
-       4. Fix the issue.
-       5. Transform the algorithm to a generic one as instructed in the readme file.
-      */
-      /*Algoritmi toimi vain parittomila luvuilla, parillisilla luvuilla kaksi keskimmäistä alkiota 
-       * jäivät alkuperäisille paikoilleen. Uudessa toteutuksessa taulukkoa käsitellään molemmista päistä 
-       * samanaikaisesti lähestyen keskipistettä
-       */
-      int i = 0;
-      while( i < grades.length - i){
-         int temp = grades[i];
-         grades[i] = grades[grades.length-i-1];
-         grades[grades.length-i-1] = temp;
-         i++;
-      }
+      Algorithms.reverse(grades);
    }
 
    /**
     * Sorts the array to ascending order.
     */
    public void sort() {
-      /* TODO:
-       1. Execute the tests following the instructions.
-       2. Study the code below and try to find what is the issue.
-       3. Use the debugger to see the execution and variable values if necessary.
-       4. Fix the issue.
-       5. Transform the algorithm to a generic one as instructed in the readme file.
-      */
-      for(int i = 0; i < grades.length; i++){
-			for(int j = i + 1; j < grades.length; j++){
-				if(grades[i].compareTo(grades[j]) > 0){
-					int temp = grades[i];
-					grades[i] = grades[j];
-					grades[j] = temp;
-				}
-			}
-		}
+      Algorithms.sort(grades);
    }
 
 
