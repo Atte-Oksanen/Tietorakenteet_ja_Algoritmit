@@ -192,19 +192,19 @@ public class LinkedListImplementation<E> implements LinkedListInterface<E>  {
       if(head == null){
          return "[]";
       }
-      String temp = "[" + head.element;
+      StringBuilder temp = new StringBuilder("[" + head.element);
       try{
          Node<E> current = head;
          int count = 0;
          while(current.next != null){
-            temp = temp + ", " + current.next;
+            temp.append(", " + current.next);
             current = current.next;
             count++;
             System.out.println(count +" " +current.element);
          }
       } catch(NullPointerException e){}
-      temp = temp + "]";
-      return temp;
+      temp.append("]");
+      return temp.toString();
    }
    
 }

@@ -109,7 +109,7 @@ public class QueueImplementation<E> implements QueueInterface<E> {
         if(itemArray[head] == null){
             return "[]";
         }
-        String temp = "[" + itemArray[head];
+        StringBuilder temp = new StringBuilder("[" + itemArray[head]);
         for(int n = 0, index = head; n < size() - 1; n++){
             if(index == capacity - 1){
                 index = 0;
@@ -117,10 +117,10 @@ public class QueueImplementation<E> implements QueueInterface<E> {
             else{
                 index++;
             }
-            temp = temp + ", " + itemArray[index]; 
+            temp.append(", " + itemArray[index]);
         }
-        temp = temp + "]";
-        return temp;
+        temp.append("]");
+        return temp.toString();
     }
     
 }
