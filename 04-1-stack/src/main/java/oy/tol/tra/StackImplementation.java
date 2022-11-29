@@ -110,13 +110,14 @@ public class StackImplementation<E> implements StackInterface<E> {
       if(itemArray[0] == null){
          return "[]";
       }
-      String temp = "[" + itemArray[0];
+      StringBuilder temp = new StringBuilder("[" + itemArray[0]);
       for(int n = 1; n < currentIndex; n++){
          if(itemArray[n] != null){
-            temp = temp + ", " + itemArray[n];
+            temp.append(", ");
+            temp.append(itemArray[n]);
          }
       }
-      temp = temp + "]";
-      return temp;
+      temp.append("]");
+      return temp.toString();
    }
 }
