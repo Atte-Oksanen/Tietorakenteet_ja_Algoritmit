@@ -48,20 +48,20 @@ public class DailyTasks {
          timer.scheduleAtFixedRate(task, 0 , TASK_DELAY_IN_SECONDS );
          
        } catch (IOException e) {
-          System.out.println("Something went wrong :( " + e.getLocalizedMessage());
+          System.out.println("Something went wrong" + e.getLocalizedMessage());
        }
    }
 
    private void readTasks() throws IOException {
       String tasks;
-      int taskCounter = 0;
+      counter = 0;
       tasks = new String(getClass().getClassLoader().getResourceAsStream("DailyTasks.txt").readAllBytes());
       String[] allTasks = tasks.split("\\r?\\n");
       for (String task : allTasks) {
          dailyTaskQueue.enqueue(task);
-         taskCounter++;
+         counter++;
       }
-      System.out.println("The number of tasks: " + taskCounter);
+      System.out.println("The number of tasks: " + counter);
 
    }
 }
