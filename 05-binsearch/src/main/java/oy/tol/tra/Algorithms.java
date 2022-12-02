@@ -28,7 +28,7 @@ public class Algorithms {
       int midIndex = -1;
 
       while(fromIndex <= toIndex){
-        midIndex = (fromIndex + toIndex) / 2;
+        midIndex = toIndex - (toIndex - fromIndex) / 2;
         if(aValue.compareTo(fromArray[midIndex]) == 0){
           return midIndex;
         }
