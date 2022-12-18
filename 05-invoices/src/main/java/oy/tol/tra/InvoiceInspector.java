@@ -121,7 +121,6 @@ public class InvoiceInspector {
 
 
    /**
-    * TODO: Implement this method so that the time complexity of creating new
     * invoices to clients is significantly faster than the naive
     * handleInvoicesAndPaymentsSlow().
     * How to do this:
@@ -144,19 +143,15 @@ public class InvoiceInspector {
 
       Algorithms.fastSort(invoices);
       Algorithms.fastSort(payments);
-      Integer[] paymentNums = new Integer[payments.length];
-      for(int n = 0; n < paymentNums.length; n++){
-         paymentNums[n] = payments[n].number;
-      }
 
       for(int n = 0; n < invoices.length; n++){
-         Invoice temp = invoices[n];
-         int index = Algorithms.binarySearch(temp.number , paymentNums, 0, payments.length - 1);
+         Payment temp = new Payment(invoices[n].number, 0);
+         int index = Algorithms.binarySearch(temp , payments, 0, payments.length - 1);
          if(index == -1){
-            toCollect.add(temp);
+            toCollect.add(invoices[n]);
          }   
-         else if(temp.sum.compareTo(payments[index].sum) > 0){
-            toCollect.add(new Invoice(temp.number, temp.sum - payments[index].sum, dueDateValue));
+         else if(invoices[n].sum.compareTo(payments[index].sum) > 0){
+            toCollect.add(new Invoice(invoices[n].number, invoices[n].sum - payments[index].sum, dueDateValue));
          }
          
       }

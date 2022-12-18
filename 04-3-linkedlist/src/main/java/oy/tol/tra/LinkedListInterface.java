@@ -2,7 +2,6 @@ package oy.tol.tra;
 
 /**
  * A generic interface to linked list class.
- * TODO: Write a class implementing this interface in a separate <code>LinkedListImplementation.java</code> file. 
  */
 public interface LinkedListInterface<E> {
    
@@ -68,7 +67,6 @@ public interface LinkedListInterface<E> {
     */
    public void clear();
 
-   // TODO: implement this in the 2nd task of the exercise.
    /**
     * Reverses the items in the list to opposite order.
     * Reversal happens in place; so the old order in this list is reversed.

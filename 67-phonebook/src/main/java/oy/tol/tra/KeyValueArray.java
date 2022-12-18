@@ -100,7 +100,7 @@ public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K,V
    @java.lang.SuppressWarnings({"squid:S3012", "unchecked"})
    private void reallocate(int newSize) throws OutOfMemoryError {
       reallocationCount++;
-      Pair<K, V> [] newPairs = (Pair<K,V>[])new Pair[newSize];
+      Pair<K, V> [] newPairs = (Pair<K,V>[])new Pair[newSize + 1];
       for (int index = 0; index < count; index++) {
          newPairs[index] = pairs[index];
       }
