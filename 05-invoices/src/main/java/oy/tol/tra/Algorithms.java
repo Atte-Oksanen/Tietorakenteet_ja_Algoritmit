@@ -44,7 +44,7 @@ public class Algorithms {
      return -1; 
     }
 
-    public static <T extends Comparable<T>> void fastSort(T [] array){ //This is not stable
+    public static <T extends Comparable<T>> void fastSort(T [] array){
       int arraylen = array.length;
 
       for(int n = (arraylen / 2) -1; n > -1; n--){

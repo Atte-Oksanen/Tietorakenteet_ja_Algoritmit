@@ -55,12 +55,27 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
      */
     @Override
     public String getStatus() {
-        String status = "Binary search tree filled with " + counter + " elements. \nThere were " + collisions
-                + " collisions and the longest linked list was " + maxList + " elements long\nData was overwritter "
+        int maxD = maxDepth(root);
+        String status = "Binary search tree filled with " + counter + " elements.\n The tree is " + maxD + " nodes deep \nThere were " + collisions
+                + " collisions and the longest linked list was " + maxList + " elements long\nData was overwritten "
                 + overlapped + " times.";
         return status;
     }
+    private int maxDepth(Node<K, V> node){
+        if(node == null){
+            return 0;
+        }
+        else{
+            int leftD = maxDepth(node.leftChild);
+            int rightD = maxDepth(node.rightChild);
+            
+            if(leftD > rightD){
+                return leftD + 1;
+            }
+            return rightD + 1;
+        }
 
+    }
     @Override
     public boolean add(K key, V value) throws IllegalArgumentException, OutOfMemoryError {
         if (key == null || value == null) {
@@ -73,11 +88,13 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
         }
         Node<K, V> current = root;
         Node<K, V> parent = null;
+        int hash = key.hashCode();
         while (current != null) {
+            int currentHash = current.key.hashCode();
             parent = current;
-            if (key.hashCode() < current.key.hashCode()) {
+            if (hash < currentHash) {
                 current = current.leftChild;
-            } else if (key.hashCode() > current.key.hashCode()) {
+            } else if (hash > currentHash) {
                 current = current.rightChild;
             } else if (value.equals(current.value)) {
                 current.key = key;
@@ -86,6 +103,7 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
                 return true;
             } else {
                 int height = 1;
+                collisions++;
                 while (current.next != null) {
                     current = current.next;
                     height++;
@@ -95,7 +113,6 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
                 }
                 current.next = new Node<>(key, value);
                 counter++;
-                collisions++;
                 return true;
             }
         }
@@ -114,25 +131,23 @@ public class KeyValueBSearchTree<K extends Comparable<K>, V> implements Dictiona
             return null;
         }
         Node<K, V> current = root;
-        while (current != null && current.key.hashCode() != key.hashCode()) {
-            if (key.hashCode() > current.key.hashCode()) {
+        int hash = key.hashCode();
+        while (current != null && current.key.hashCode() != hash) {
+            if (hash > current.key.hashCode()) {
                 current = current.rightChild;
             } else {
                 current = current.leftChild;
             }
-
         }
         if (current == null) {
             return null;
         }
-        if (!current.key.equals(key)) {
-            while (current.next != null) {
+            while (current.next != null && !current.key.equals(key)) {
                 if (current.next.key.equals(key)) {
                     return current.next.value;
                 }
                 current = current.next;
             }
-        }
         return current.value;
     }
 

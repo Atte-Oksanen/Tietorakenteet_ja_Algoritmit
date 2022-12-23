@@ -43,10 +43,12 @@ public class Person implements Comparable<Person>{
 
     public int hashCode() {
         int hash = 0;
-        for(int n = 0; n < this.getFullName().length(); n++){
-            hash = hash * 31 + this.getFullName().charAt(n);
+        String fullName = this.getFullName();
+        for(int n = 0; n < fullName.length(); n++){
+            hash = fullName.charAt(n) + (hash << 6) + (hash << 16) - hash;
         }
         return hash;
-        
     }
+
+    
 }
