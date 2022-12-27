@@ -136,7 +136,7 @@ Ehdottomasti mielenkiintoisin asia, jonka metodin tuottamasta datasta löysin, o
 
 ### Binäärinen hakupuu
 
-![Graph](67-phonebook_BST.png)
+![Graph](67-phonebook_bst.png)
 x-akselilla elementtien lukumäärä ja y-akselilla suoritukseen mennyt aika.
 
 ### Aikakompleksisuus
