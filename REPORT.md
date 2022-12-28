@@ -165,13 +165,13 @@ Käytin tässä tehtävässä heap sort-algoritmia kahdesta syystä. Ensimmäine
 
 Tein valinnaisena tehtävänä xx-braille:n. Toteutuksellani aikakompleksisuus kaikissa metodeissa on O(1), mutta testiaikojen vaihteluväli on miltei 10 prosenttia.
 ```console
-                ========== Statistics ==========
+              ========== Statistics ==========
 
- Converting Kalevala.txt with slow table 10 times took    243 ms
- Converting Kalevala.txt with hash table 10 times took    272 ms
- Converting Bulk.txt     with slow table 10 times took  12815 ms
- Converting Bulk.txt     with hash table 10 times took   6919 ms
- >> Hashtable execution time was 53,99% of slow table time
+ Converting Kalevala.txt with slow table 10 times took    572 ms
+ Converting Kalevala.txt with hash table 10 times took    568 ms
+ Converting Bulk.txt     with slow table 10 times took  26215 ms
+ Converting Bulk.txt     with hash table 10 times took  14116 ms
+ >> Hashtable execution time was 53,85% of slow table time
 ```
 # Yleistä koko kurssista ja kurssin tehtävistä
 
